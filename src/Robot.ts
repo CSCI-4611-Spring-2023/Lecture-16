@@ -23,4 +23,12 @@ export class Robot extends gfx.Transform3
                 child.createMeshes();
         });
     }
+
+    setPose(name: string, pose: gfx.Quaternion): void
+    {
+        this.children.forEach((child: gfx.Transform3)=>{
+            if(child instanceof RobotPart)
+                child.setPose(name, pose);
+        });
+    }
 }
