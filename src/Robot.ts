@@ -15,5 +15,12 @@ export class Robot extends gfx.Transform3
         sphere.scale.set(1, 0.5, 1);
         sphere.translateY(0.05);
         this.add(sphere);
+
+        this.add(new RobotPart('root'));
+
+        this.children.forEach((child: gfx.Transform3)=>{
+            if(child instanceof RobotPart)
+                child.createMeshes();
+        });
     }
 }
