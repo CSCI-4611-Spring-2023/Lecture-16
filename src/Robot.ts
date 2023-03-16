@@ -6,5 +6,14 @@ export class Robot extends gfx.Transform3
     constructor()
     {
         super();
+
+        const base = gfx.MeshFactory.createBox(0.5, 0.05, 0.5);
+        base.translateY(0.025);
+        this.add(base);
+
+        const sphere = gfx.MeshFactory.createSphere(0.1, 2);
+        sphere.scale.set(1, 0.5, 1);
+        sphere.translateY(0.05);
+        this.add(sphere);
     }
 }
